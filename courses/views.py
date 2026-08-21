@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Courses.
+def courses_home(request):
+    return render(request, 'courses/courses_home.html')
