@@ -1,5 +1,12 @@
 from django.shortcuts import render
+from .models import Course
 
-# Courses.
+#show courses.
 def courses_home(request):
-    return render(request, 'courses/courses_home.html')
+    courses = Course.objects.all()
+
+    context = {
+        'courses': courses,
+    }
+
+    return render(request, 'courses/courses_home.html', context)
