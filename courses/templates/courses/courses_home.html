@@ -6,7 +6,11 @@
 
 <!--show the courses-->
 {% for course in courses %}
- <h2>{{ course.title }}</h2>
+ <h2>
+    <a href="{% url 'course_detail' course.id %}">
+    {{ course.title }}</a>
+ </h2>
+
  <p>{{ course.description }}</p>
  <p>Price: ${{ course.price }}</p>
  {% endfor %}

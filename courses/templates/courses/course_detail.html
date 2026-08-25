@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h1>{{ course.title}}</h1>
+    <p>{{ course.description }}</p>
+    <p>Price: ${{ course.price }}</p>
+    <a href="/" class="btn btn-secondary">Back to Course</a>
+</div>
+
+<h2>Lessons</h2>
+{% for lesson in course.lessons.all %}
+  <h3>{{ lesson.title }}</h3>
+  <p>{{ lesson.content }}</p>
+{% empty %}
+  <p>No lessons available yet.</p>
+{% endfor %}
+<a href="/" class="btn btn-secondary">Back to Courses</a>
+
+{% endblock %}
