@@ -1,20 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Webcode Center</h1>
-<p>platform for web development courses.</p>
+<!--Main course section -->
+<div class="container mt-4">
 
-<!--show the courses-->
-{% for course in courses %}
- <h2>
-    <a href="{% url 'course_detail' course.id %}">
-    {{ course.title }}</a>
- </h2>
+ <!--page heading-->
+ <div class="text-center mb-4">
+    <h1>Webcode Center</h1>
+    <p>lesrn coding with Webcode Center</p>
+ </div>
 
- <p>{{ course.description }}</p>
- <p>Price: ${{ course.price }}</p>
- {% endfor %}
+ <!--Course list-->
+ <div class="row">
 
- {% endblock %}
+  {% for course in courses %}
 
+  <!--Courses cards-->
+  <div class="col-md-6 col-lg-4 mb-4">
+    <div class="card h-100">
+
+        <div class="card-body">
+
+            <!--Course title-->
+            <h2 class="card-title h4">
+                {{ course.title }}
+            </h2>
+
+        <!--Course description-->
+        <p class="card-text">
+            {{ course.description }}
+        </p>
+
+    <!--Course details button-->
+    <a href="{%url 'course_detail' course.id %}"
+    class="btn btn-primary">
+    View Course
+    </a>
+        </div>
+    </div>
+  </div>
+  {% empty %}
+
+  <!-- Message if there are no courses -->
+   <p> there is no courses yet.</p>
+{% endfor %}
+ </div>
+</div>
+{% endblock %}
 
