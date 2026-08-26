@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'courses',
+
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 SITE_ID = 1
@@ -84,6 +87,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'webcode_center.wsgi.application'
 
+# Crispy forms settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
