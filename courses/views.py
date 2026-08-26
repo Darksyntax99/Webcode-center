@@ -12,7 +12,7 @@ def courses_home(request):
 
     return render(request, 'courses/courses_home.html', context)
 
-#  first course
+#   course deatils
 def course_detail(request, course_id):
     course = get_object_or_404(Course, id=course_id)
 
@@ -21,7 +21,7 @@ def course_detail(request, course_id):
     }
     return render(request, 'courses/course_detail.html', context)
 
-# view my.courses 
+# My courses 
 def my_courses(request):
     return render(request, 'courses/my_courses.html')
 # Add new course
@@ -39,3 +39,33 @@ def add_course(request):
                 'form': form
             }
             return render(request, 'courses/add_course.html', context)
+# Edit course
+def edit_course(request, course_id):
+     course = get_object_or_404(Course, id=course_id)
+     if request.method == 'POST':
+          form = CourseForm(request.POST, instance=course)
+
+          if form.is_valid():
+               form.save()
+               return redirect('course_detail', course_id=course.id)
+     else:
+          form = CourseForm(instance=course)
+     context = {
+          'form': form,
+          'course': course 
+     }
+     return render(request, 'courses/edit_course.html', context)
+
+# delete course 
+def delete_course(request, course_id):
+     course = get_object_or_404(Course, id=course_id)
+
+     if request.method == 'POST':
+          course.delete()
+          return redirect('courses_home')
+     context = {
+          'course': course
+     }
+     return render(request, 'courses/delete_course.html', context)
+
+

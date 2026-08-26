@@ -21,7 +21,19 @@
      <a href="#" class="btn btn-primary">
         buy 
      </a>
-        </div>
+       
+    {%if user.is_staff %}
+    <!--edit course button-->
+    <a href="{%url 'edit_course' course.id%}"
+    class="btn btn-primary course-admin-btn">
+    Edit course
+</a>
+<!--delete course button-->
+<a href="{%url 'delete_course' course.id %}"
+class="btn btn-secondary course-admin-btn">
+Delete course
+</a>
+{% endif %}
      <!--lessons-->
      <h2 class="h4 mb-3">Lessons</h2>
 
@@ -37,15 +49,21 @@
             {{ lesson.content }}
         </p>
       </div>
+
     {% empty %}
 
     <p>No Lessons yet.</p>
+
     {% endfor %}
+
 <!-- Back button -->
  <a href = "{% url 'courses_home' %}"
  class="btn btn-secondary">
 Back to courses</a>
-        </div>
-      </div>
-        </div>
+
+     </div>
+  </div>
+</div>
+</div>
+
 {%endblock%}
