@@ -24,7 +24,7 @@
      {% for lesson in course.lessons.all %}
 
      <!-- Lessons item -->
-      <div class="border rounded p-3 mb-3">
+      <div class="lesson">
         <h3 class="h5"> 
             {{lesson.title}}
             </h3>
@@ -39,7 +39,7 @@
     {% endfor %}
 <!-- Back button -->
  <a href = "{% url 'courses_home' %}"
- class="btn-btn-secondary">
+ class="btn btn-secondary">
 Back to courses</a>
         </div>
       </div>
