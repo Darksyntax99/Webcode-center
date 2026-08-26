@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!--Add course page-->
+<div class="container mt-4">
+    <div class="col-12 col-md-6">
+        <!--page title -->
+        <h1 class="mb-4">Add Course</h1>
+ <!--Add course form-->
+ <form method="POST"
+ action="{%url 'add_course' %}">
+ {%csrf_token%}
+ {{form|crispy}}
+ <!--Form buttons-->
+ <a href="{%url 'courses_home'%}"
+ class="btn btn-secondary">
+ Cancel</a>
+ <button type="submit"
+ class="btn btn-primary">
+ Add Course
+</button>
+ </form>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Course
+from .forms import CourseForm
 
 #show courses page.
 def courses_home(request):
@@ -23,3 +24,18 @@ def course_detail(request, course_id):
 # view my.courses 
 def my_courses(request):
     return render(request, 'courses/my_courses.html')
+# Add new course
+def add_course(request):
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('courses_home')
+    else:
+            form = CourseForm()
+
+            context = {
+                'form': form
+            }
+            return render(request, 'courses/add_course.html', context)

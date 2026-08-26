@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views .courses_home, name='courses_home'),
     path('<int:course_id>/', views.course_detail, name='course_detail'),
     path('my-courses/', views.my_courses, name="my_courses"),
+    path('add/', views.add_course, name='add_course'),
 ]
