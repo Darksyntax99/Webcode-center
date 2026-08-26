@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify">
+     <div class="col-md-6">
+
+        <!--Verification card-->
+        <div class="card">
+            <div class="card-body text-center">
+
+                <!--Page title-->
+                <h1 class="h3 mb-4">
+                    verify your Email
+                </h1>
+
+            <!--verification message -->
+            <p>
+                we have sent a verification email to you check your enail and follow the link.
+            </p>
+
+            <!--Login link -->
+            <a href="{% url 'account_login' %}"
+            class="btn btn-secondary mt-3">
+            Back to login
+        </a>
+            </div>
+        </div>
+     </div>
+    </div>
+</div>
+{% endblock %}

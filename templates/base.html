@@ -7,46 +7,88 @@
     <title>Webcode Center</title>
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Black+Ops+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Macondo&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rye&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/">Webcode Center</a>
-        <button class="navbar-toggler" type="button"
+
+        <a class="navbar-brand" href="/">
+        Webcode Center
+        </a>
+
+        <button class="navbar-toggler"
+        type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Courses</a>
-                </li>
+    </button>
 
-                {% if user.is_authenticated %}
-                 <li class="nav-item">
-                    <a class="nav-link"
-                    href="{% url 'account_logout' %}">Logout</a>
-                 </li>
-                 {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+            <!--Course link-->
+            <li class ="nav-item">
+                <a class="nav-link" href="/">
+                    Course
+                </a>
+            </li>
+        {%if user.is_authenticated %}
+        <!-- my courses links-->
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+             my courses  
+            </a> 
+        </li>
+
+     <!--logout link-->
+       <li class="nav-item">
+        <a class="nav-link"
+          href="{%url 'account_logout' %}">
+          logout
+        </a>
+       </li>
+        {% else%}
+        <!--login link-->
+        <li class="nav-item">
+            <a  class="nav-link"
+            href="{% url 'account_login' %}">
+            login
+        </a>
+        </li>
+        <!--register link-->
+        <li class="nav-item">
+            <a class="nav-link"
+            href="{% url 'account_signup' %}">
+            register
+        </a>
+        </li>
+           {% endif %}
+        </ul>
     </div>
-</nav>
-
+    </div>
+  </nav>
     <!-- Page content-->
      {% block content %}
      {% endblock %}
-
+    <!-- footer-->
+     <footer class="footer">
+        <div class="conteiner text-center">
+            <p class="mb-1">
+                2026 Webcode Center
+            </p>
+            <p class="mb-0">
+                Learn webdevelopment with Webcode
+                        by darksyntax99
+            </p>
+        </div>
+     </footer>
      <!--Boostrap Js-->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

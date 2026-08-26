@@ -1,20 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- Course details -->
+ <div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
 
-<div class="container mt-4">
-    <h1>{{ course.title}}</h1>
-    <p>{{ course.description }}</p>
-    <p>Price: ${{ course.price }}</p>
-    <a href="/" class="btn btn-secondary">Back to Course</a>
-</div>
+            <!--course tile-->
+            <h1 class="card-title">
+                {{course.title}}
+            </h1>
+        <!--course description-->
+        <p class="card-text">
+            {{course.description}}
+        </p>
+    <!-- course price-->
+     <p>
+        <strong>Price:</strong> ${{ course.price }}
+     </p>
 
-<h2>Lessons</h2>
-{% for lesson in course.lessons.all %}
-  <h3>{{ lesson.title }}</h3>
-  <p>{{ lesson.content }}</p>
-{% empty %}
-  <p>No lessons available yet.</p>
-{% endfor %}
-<a href="/" class="btn btn-secondary">Back to Courses</a>
+     <!--lessons-->
+     <h2 class="h4 mb-3">Lessons</h2>
 
-{% endblock %}
+     {% for lesson in course.lessons.all %}
+
+     <!-- Lessons item -->
+      <div class="border rounded p-3 mb-3">
+        <h3 class="h5"> 
+            {{lesson.title}}
+            </h3>
+
+        <p class="mb-0">
+            {{ lesson.content }}
+        </p>
+      </div>
+    {% empty %}
+
+    <p>No Lessons yet.</p>
+    {% endfor %}
+<!-- Back button -->
+ <a href = "{% url 'courses_home' %}"
+ class="btn-btn-secondary">
+Back to courses</a>
+        </div>
+      </div>
+        </div>
+{%endblock%}

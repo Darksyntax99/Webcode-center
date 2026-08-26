@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <!-- register card -->
+             <div class="card">
+                <div class ="card-body">
+                    <h1 class="h3 mb-4">register</h1>
+
+                <!--register form -->
+                <form method="post">
+                    {% csrf_token %}
+                {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">
+                Register
+            </button>
+        </form>
+
+        <!--Login link -->
+        <p class="mt-3">
+            Already have an account?
+            <a href="{% url 'account_login' %}">
+                Login
+            </a>
+        </p>
+
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+           
