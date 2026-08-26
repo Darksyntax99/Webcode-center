@@ -20,6 +20,6 @@ def course_detail(request, course_id):
     }
     return render(request, 'courses/course_detail.html', context)
 
-# user's courses 
+# view my.courses 
 def my_courses(request):
     return render(request, 'courses/my_courses.html')
