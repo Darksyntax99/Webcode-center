@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Course
 
-#show courses page .
+#show courses page.
 def courses_home(request):
     courses = Course.objects.all()
 
@@ -19,3 +19,7 @@ def course_detail(request, course_id):
         'course' : course
     }
     return render(request, 'courses/course_detail.html', context)
+
+# user's courses 
+def my_courses(request):
+    return render(request, 'courses/my_courses.html')
