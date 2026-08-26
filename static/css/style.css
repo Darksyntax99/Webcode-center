@@ -4,7 +4,9 @@ body {
     background-color: #000000;
     color: #d4af37;
 }
-
+main{
+    flex: 1;
+}
 /* Navbar */ 
 .navbar {
     background-color: #d4af37 !important;

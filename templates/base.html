@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Black+Ops+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Macondo&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rye&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
@@ -42,8 +42,8 @@
         {%if user.is_authenticated %}
         <!-- my courses links-->
         <li class="nav-item">
-            <a class="nav-link" href="#">
-             my courses  
+            <a class="nav-link" href="{% url 'my_courses'%}">
+             My Courses  
             </a> 
         </li>
 
@@ -75,8 +75,10 @@
     </div>
   </nav>
     <!-- Page content-->
+     <main class="flex-grow-1">
      {% block content %}
      {% endblock %}
+     </main>
     <!-- footer-->
      <footer class="footer">
         <div class="conteiner text-center">

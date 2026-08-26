@@ -4,6 +4,6 @@ from . import views
 # Course app URLs.
 urlpatterns = [
     path('', views .courses_home, name='courses_home'),
-    path('<int:course_id>/', views.course_detail, name = 'course_detail'),
-    path('my-courses/', view.my_courses, name="my_courses"),
+    path('<int:course_id>/', views.course_detail, name='course_detail'),
+    path('my-courses/', views.my_courses, name="my_courses"),
 ]
