@@ -55,7 +55,37 @@ Delete course
     <p>No Lessons yet.</p>
 
     {% endfor %}
+  <!--Review btn-->
+  {% if user.is_authenticated %}
+  <a href="{%url 'add_review' course.id %}"
+  class="btn btn-primary">
+  Add Review
+</a>
+{% endif %}
+<!--Show reviews-->
+<h2 class="h4 mt-4">Reviews</h2>
 
+{% for review in course.reviews.all %}
+<div class="lesson">
+    <h3 class="h5">
+        {{ review.user.username }}
+    </h3>
+    <p>
+        Rating: {{ review.rating }}/5
+    </p>
+  <p>
+    {{review.content}}
+  </p>
+</div>
+{%empty%}
+<p>No review yet</p>
+{% endfor %}
+{% if user.is_authenticated %}
+<a href="{%url 'add_review' course.id %}"
+ class="btn btn-primary">
+ Add Review
+</a>
+{%endif %} 
 <!-- Back button -->
  <a href = "{% url 'courses_home' %}"
  class="btn btn-secondary">

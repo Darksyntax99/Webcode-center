@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!--Add review page-->
+<div class="conteiner mt-4">
+    <div class="card">
+        <div class="card-body">
+            <!-- Page title-->
+             <h1>Add Review</h1>
+
+             <p>
+                Review for <strong>{{ course.title }}</strong>
+             </p>
+          <!--Review form-->
+          <form method="POST">
+            {%csrf_token%}
+
+            {{form|crispy}}
+
+             <!--Cancel button-->
+             <a href="{%url 'course_detail' course.id%}"
+             class="btn btn-secondary">
+             Cancel
+            </a>
+            <!--Add review button-->
+            <button type="submit"
+              class="btn btn-primary">
+              Add review
+            </button>
+          </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

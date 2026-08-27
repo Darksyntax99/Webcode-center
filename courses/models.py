@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Course model.
 class Course(models.Model):
@@ -25,3 +26,25 @@ class Lesson(models.Model):
 
    def __str__(self):
        return self.title
+
+# Review model 
+class Review(models.Model):
+#Review details 
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+
+    course = models.ForeignKey( 
+        Course,
+        on_delete=models.CASCADE,
+        related_name='reviews'
+    )
+
+    content = models.TextField()
+
+    rating = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.user.username} - {self.course.title}'
+    

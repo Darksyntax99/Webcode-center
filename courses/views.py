@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Course
-from .forms import CourseForm
+from .models import Course, Review
+from .forms import CourseForm, ReviewForm
+
 
 #show courses page.
 def courses_home(request):
@@ -69,3 +70,50 @@ def delete_course(request, course_id):
      return render(request, 'courses/delete_course.html', context)
 
 
+# Add review
+def add_review(request, course_id):
+     course = get_object_or_404(Course, id=course_id)
+
+     if request.method == 'POST':
+          form = ReviewForm(request.POST)
+
+          if form.is_valid():
+               review = form.save(commit=False)
+               review.user = request.user
+               review.course = course
+               review.save()
+
+               return redirect('course_detail', course_id=course.id)
+     else:
+          form = ReviewForm()
+
+     context = {
+          'form': form,
+          'course': course
+     }
+     return render(request, 'courses/add_review.html', context)
+
+# Edit review
+def edit_review(request, review_id):
+     review = get_object_or_404(
+          Review, 
+          id=review_id,
+          user=request.user
+     )
+     if request.method == 'POST':
+          form = ReviewForm(request.POST, instance=review)
+
+          if form.is_valid():
+               form.save()
+               return redirect(
+                    'course_detail',
+                    course_id=review.course.id
+               )
+     else:
+          form = ReviewForm(instance=review)
+          context = {
+                   'form': form,
+                   'review': review
+              }
+
+     return render(request, 'courses/edit_review.html', context)
