@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h1>Edit Review</h1>
+
+        <form method="Post">
+            {% csrf_token%}
+
+            {{form|crispy}}
+
+        <a href="{%url 'course_detail' review.course.id %}"
+        class="btn btn-secondary">
+        Cancel
+    </a>
+
+    <button type="submit" class="btn btn-primary">
+        Update Review
+    </button>
+</form>
+  </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -76,6 +76,12 @@ Delete course
   <p>
     {{review.content}}
   </p>
+  {% if review.user == user %}
+  <a href= "{% url 'edit_review' review.id %}"
+     class="btn btn-primary">
+     Edit Review
+    </a>
+    {% endif%}
 </div>
 {%empty%}
 <p>No review yet</p>
