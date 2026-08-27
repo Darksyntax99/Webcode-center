@@ -40,6 +40,13 @@
                 </a>
             </li>
         {%if user.is_authenticated %}
+        <!--Add course link for staff-->
+        {% if user.is_staff %}
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'add_course' %}">
+                Add Course</a>
+        </li>
+        {%endif%}
         <!-- my courses links-->
         <li class="nav-item">
             <a class="nav-link" href="{% url 'my_courses'%}">
@@ -81,7 +88,7 @@
      </main>
     <!-- footer-->
      <footer class="footer">
-        <div class="conteiner text-center">
+        <div class="container text-center">
             <p class="mb-1">
                 2026 Webcode Center
             </p>

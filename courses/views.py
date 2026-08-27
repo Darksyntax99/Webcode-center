@@ -111,9 +111,30 @@ def edit_review(request, review_id):
                )
      else:
           form = ReviewForm(instance=review)
-          context = {
+
+     context = {
                    'form': form,
                    'review': review
               }
 
      return render(request, 'courses/edit_review.html', context)
+# Delete review 
+def delete_review(request, review_id):
+     review = get_object_or_404(
+          Review,
+          id=review_id,
+          user=request.user
+     )
+
+     if request.method == 'POST':
+          course_id = review.course.id
+          review.delete()
+
+          return redirect(
+               'course_detail',
+               course_id=course_id
+          )
+     context = {
+          'review': review
+     }
+     return render(request, 'courses/delete_review.html', context)

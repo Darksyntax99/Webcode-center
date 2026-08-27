@@ -52,16 +52,11 @@ Delete course
 
     {% empty %}
 
-    <p>No Lessons yet.</p>
+    <p>No Lessons</p>
 
     {% endfor %}
+
   <!--Review btn-->
-  {% if user.is_authenticated %}
-  <a href="{%url 'add_review' course.id %}"
-  class="btn btn-primary">
-  Add Review
-</a>
-{% endif %}
 <!--Show reviews-->
 <h2 class="h4 mt-4">Reviews</h2>
 
@@ -71,7 +66,7 @@ Delete course
         {{ review.user.username }}
     </h3>
     <p>
-        Rating: {{ review.rating }}/5
+        Rating: {{ review.rating }}/10
     </p>
   <p>
     {{review.content}}
@@ -81,17 +76,19 @@ Delete course
      class="btn btn-primary">
      Edit Review
     </a>
+    <a href="{%url 'delete_review' review.id %}"
+    class="btn btn-primary">Delete Review</a>
     {% endif%}
 </div>
 {%empty%}
-<p>No review yet</p>
-{% endfor %}
+<p>No review </p>
 {% if user.is_authenticated %}
-<a href="{%url 'add_review' course.id %}"
- class="btn btn-primary">
- Add Review
+  <a href="{%url 'add_review' course.id %}"
+  class="btn btn-primary">
+  Add Review
 </a>
-{%endif %} 
+{% endif %}
+{% endfor %}
 <!-- Back button -->
  <a href = "{% url 'courses_home' %}"
  class="btn btn-secondary">
