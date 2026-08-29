@@ -76,8 +76,11 @@ Delete course
      class="btn btn-primary">
      Edit Review
     </a>
-    <a href="{%url 'delete_review' review.id %}"
-    class="btn btn-primary delete-btn">Delete Review</a>
+    <button 
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#deleteReviewModal">Delete review</button>
     {% endif%}
 </div>
 {%empty%}
