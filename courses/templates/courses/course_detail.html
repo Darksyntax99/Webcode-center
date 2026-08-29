@@ -80,7 +80,29 @@ Delete course
     type="button"
     class="btn btn-primary"
     data-bs-toggle="modal"
-    data-bs-target="#deleteReviewModal">Delete review</button>
+    data-bs-target="#deleteReviewModal{{ review.id }}">Delete review</button>
+    <!-- Delete review modal-->
+     <div class="modal fade" id="deleteReviewModal{{ review.id }}" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5">Delete Review</h2>
+                </div>
+            <div class="modal-body">
+                <p>Delete the review?</p>
+            </div>
+            <div class="modal-footer">
+                <button type ="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">Cancel</button>
+            <form method="POST" action="{%url 'delete_review' review.id %}">
+                {% csrf_token%}
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+            </div>
+                </div>
+            </div>
+        </div>
     {% endif%}
 </div>
 {%empty%}

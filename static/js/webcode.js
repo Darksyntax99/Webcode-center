@@ -13,7 +13,7 @@ deleteButton.forEach(function(button) {
 // Course search 
 const searchInput = document.getElementById('course-search');
 const courses = document.querySelectorAll('.course-card');
-
+if (searchInput) {
 searchInput.addEventListener('keyup', function() {
     const searchText = searchInput.value.toLowerCase();
      
@@ -25,4 +25,14 @@ searchInput.addEventListener('keyup', function() {
         course.style.display = 'none'
     }
 });
+});
+}
+// Review rating 
+const ratingButtons = document.querySelectorAll('.rating-btn');
+
+ratingButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        const rating = button.value;
+        document.getElementById('id_rating').value = rating;
+    });
 });
