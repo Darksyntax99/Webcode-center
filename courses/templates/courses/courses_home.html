@@ -9,6 +9,12 @@
     <h1>Webcode Center</h1>
     <p>learn coding and become developer with Webcode Center</p>
  </div>
+<!--Course search -->
+<input 
+type="text"
+id="course-search"
+class="form-control mb-4"
+placeholder="Search courses">
 
  <!--Course list-->
  <div class="row">
@@ -16,7 +22,7 @@
   {% for course in courses %}
 
   <!--Courses cards-->
-  <div class="col-md-6 col-lg-4 mb-4">
+  <div class="col-md-6 col-lg-4 mb-4 course-card">
     <div class="card h-100">
 
         <div class="card-body">
