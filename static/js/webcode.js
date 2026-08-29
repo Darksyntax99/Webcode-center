@@ -27,12 +27,19 @@ searchInput.addEventListener('keyup', function() {
 });
 });
 }
-// Review rating 
-const ratingButtons = document.querySelectorAll('.rating-btn');
-
-ratingButtons.forEach(function(button) {
+// Review rating
+ const ratingButtons = document.querySelectorAll('.rating-btn'); 
+ ratingButtons.forEach(function(button) { 
     button.addEventListener('click', function() {
-        const rating = button.value;
-        document.getElementById('id_rating').value = rating;
-    });
+        ratingButtons.forEach(function(item) {
+        item.classList.remove('selected');
+
+        });
+
+        button.classList.add('selected');
+         const rating = button.value;   
+         document.getElementById('selected-rating').textContent = 'Selected : ' + rating;
+         document.getElementById('id_rating').value = rating; 
+
+     }); 
 });

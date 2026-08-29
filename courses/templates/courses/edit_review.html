@@ -12,7 +12,22 @@
             {% csrf_token%}
 
             {{form|crispy}}
-
+         <!--Rating buttons -->
+         <div class="mb-3">
+            <p>Rating:</p>
+            <button type="button" class="btn btn-secondary rating-btn" value="1">1</button>
+            <button type="button" class="btn btn-secondary rating-btn" value="2">2</button>
+            <button type="button" class="btn btn-secondary rating-btn" value="3">3</button>            
+            <button type="button" class="btn btn-secondary rating-btn" value="4">4</button>          
+            <button type="button" class="btn btn-secondary rating-btn" value="5">5</button>            
+            <button type="button" class="btn btn-secondary rating-btn" value="6">6</button>            
+            <button type="button" class="btn btn-secondary rating-btn" value="7">7</button>           
+            <button type="button" class="btn btn-secondary rating-btn" value="8">8</button>           
+            <button type="button" class="btn btn-secondary rating-btn" value="9">9</button>      
+            <button type="button" class="btn btn-secondary rating-btn" value="10">10</button>
+            <p id="selected-rating"></p>
+         </div>
+           
         <a href="{%url 'course_detail' review.course.id %}"
         class="btn btn-secondary">
         Cancel
