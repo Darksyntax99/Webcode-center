@@ -24,8 +24,13 @@ def course_detail(request, course_id):
     return render(request, 'courses/course_detail.html', context)
 
 # My courses 
+@login_required
 def my_courses(request):
-    return render(request, 'courses/my_courses.html')
+    enrollments = Enrollment.objects.filter(user=request.user)
+    context = {
+         'enrollments': enrollments,
+    }
+    return render(request, 'courses/my_courses.html', context)
 # Add new course
 def add_course(request):
     if request.method == 'POST':
@@ -139,6 +144,7 @@ def delete_review(request, review_id):
           'review': review
      }
      return render(request, 'courses/delete_review.html', context)
+
 @login_required
 def enroll_course(request, course_id):
      course = get_object_or_404(Course, id=course_id)

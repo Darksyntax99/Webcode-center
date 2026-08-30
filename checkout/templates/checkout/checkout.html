@@ -21,5 +21,6 @@
 <script src="https://js.stripe.com/v3/"></script>
 {{stripe_public_key|json_script:"id_stripe_public_key"}}
 {{client_secret|json_script:"id_client_secret"}}
+{{ course.id|json_script:"id_course_id"}}
 <script src="{%static 'checkout/js/checkout.js'%}"></script>
 {%endblock%}

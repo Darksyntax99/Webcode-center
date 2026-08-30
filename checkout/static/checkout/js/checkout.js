@@ -5,6 +5,9 @@ const stripePublicKey = JSON.parse(
 const clientSecret = JSON.parse(
     document.getElementById('id_client_secret').textContent
 );
+const courseId = JSON.parse(
+    document.getElementById('id_course_id').textContent
+)
 // setup stripe
 const stripe = Stripe(stripePublicKey);
 const elements = stripe.elements();
@@ -35,7 +38,9 @@ submitButton.addEventListener('click', function() {
             document.getElementById('card-errors').textContent = 
             result.error.message;
         } else {
-            console.log('Payment successful');
+            window.location.href = 
+            '/checkout/success/' + courseId + '/?payment_intent=' +
+            result.paymentIntent.id;
         }
     });
 });
