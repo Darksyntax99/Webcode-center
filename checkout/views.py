@@ -10,7 +10,7 @@ def checkout(request, course_id):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     intent = stripe.PaymentIntent.create(
         amount=round(course.price * 100),
-        currency= setting.STRIPE_CURRENCY
+        currency= settings.STRIPE_CURRENCY
     )
 
     context ={

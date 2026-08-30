@@ -7,7 +7,7 @@ const clientSecret = JSON.parse(
 );
 // setup stripe
 const stripe = Stripe(stripePublicKey);
-const element = stripe.element();
+const elements = stripe.element();
 // create card field
-const card = ElementInternals.create('card');
+const card = elements.create('card');
 card.mount('#card-element');
