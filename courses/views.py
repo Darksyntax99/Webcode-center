@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Course, Review
+from django.contrib.auth.decorators import login_required
+from .models import Course, Review, Enrollment
 from .forms import CourseForm, ReviewForm
 
 
@@ -138,3 +139,12 @@ def delete_review(request, review_id):
           'review': review
      }
      return render(request, 'courses/delete_review.html', context)
+@login_required
+def enroll_course(request, course_id):
+     course = get_object_or_404(Course, id=course_id)
+
+     Enrollment.objects.get_or_create(
+          user=request.user,
+          course=course
+     )
+     return redirect('course_detail', course_id=course.id)

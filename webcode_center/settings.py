@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_bootstrap5',
+    'checkout'
 ]
 
 SITE_ID = 1
@@ -158,3 +159,10 @@ LOGOUT_REDIRECT_URL = '/'
 
 # disable rate while tetsing
 ACCOUNT_RATE_LIMITS = False
+
+# stripe setting 
+STRIPE_CURRENCY ='eur'
+
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')

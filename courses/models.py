@@ -54,3 +54,15 @@ class Review(models.Model):
     def __str__(self):
         return f'{self.user.username} - {self.course.title}'
     
+# enrollment model
+class Enrollment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='enrollments'
+    )
+    purchased_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username} - {self.course.title}'
