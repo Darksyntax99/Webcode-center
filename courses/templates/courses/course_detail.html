@@ -18,7 +18,7 @@
         <strong>Price:</strong> €{{ course.price }}
      </p>
      <!--buy course button-->
-     <a href="{%url 'enroll_course' course.id%}" class="btn btn-primary">
+     <a href="{%url 'checkout' course.id%}" class="btn btn-primary">
         buy 
      </a>
        
@@ -56,8 +56,9 @@ Delete course
 
     {% endfor %}
 
-  <!--Review btn-->
+  <!--Review section-->
 <!--Show reviews-->
+<!--edit review and rating-->
 <h2 class="h4 mt-4">Reviews</h2>
 
 {% for review in course.reviews.all %}
@@ -107,13 +108,12 @@ Delete course
 </div>
 {%empty%}
 <p>No review </p>
-{% if user.is_authenticated %}
+{% endfor%}
+<!--add button-->
   <a href="{%url 'add_review' course.id %}"
   class="btn btn-primary">
   Add Review
 </a>
-{% endif %}
-{% endfor %}
 <!-- Back button -->
  <a href = "{% url 'courses_home' %}"
  class="btn btn-secondary">
