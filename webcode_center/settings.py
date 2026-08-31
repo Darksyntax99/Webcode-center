@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-import os 
+import os
 import dj_database_url
 
 if os.path.isfile('env.py'):
@@ -133,7 +133,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/' 
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 
@@ -151,7 +151,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-    
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_FIELDS = ['username*', 'email*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
@@ -161,8 +160,8 @@ LOGOUT_REDIRECT_URL = '/'
 # disable rate while tetsing
 ACCOUNT_RATE_LIMITS = False
 
-# stripe setting 
-STRIPE_CURRENCY ='eur'
+# stripe setting
+STRIPE_CURRENCY = 'eur'
 
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')

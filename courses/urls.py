@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views 
+from . import views
 
 # Course app URLs.
 urlpatterns = [
@@ -10,6 +10,10 @@ urlpatterns = [
     path('edit/<int:course_id>/', views.edit_course, name='edit_course'),
     path('delete/<int:course_id>/', views.delete_course, name='delete_course'),
     path('review/add/<int:course_id>/', views.add_review, name='add_review'),
-    path('review/edit/<int:review_id>/', views.edit_review, name='edit_review'),
-    path('review/delete/<int:review_id>/', views.delete_review, name='delete_review'),
+    path('review/edit/<int:review_id>/',
+         views.edit_review,
+         name='edit_review'),
+    path('review/delete/<int:review_id>/',
+         views.delete_review,
+         name='delete_review'),
 ]

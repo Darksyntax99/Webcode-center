@@ -2,6 +2,7 @@ from courses.models import Course, Enrollment
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 
+
 class PaymentWebhook:
     """Payment webhooks."""
     def __init__(self, request):
@@ -14,7 +15,7 @@ class PaymentWebhook:
         )
 
     def payment_succeeded(self, event):
-        intent= event.data.object
+        intent = event.data.object
 
         user_id = intent.metadata.user_id
         course_id = intent.metadata.course_id
@@ -30,9 +31,9 @@ class PaymentWebhook:
             content='Payment Succeeded',
             status=200
         )
-    
+
     def payment_failed(self, event):
         return HttpResponse(
-            content= 'Payment failed',
+            content='Payment failed',
             status=200
         )
