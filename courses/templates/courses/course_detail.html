@@ -36,7 +36,7 @@ Delete course
 {% endif %}
      <!--lessons-->
      <h2 class="h4 mb-3">Lessons</h2>
-
+    {% if is_enrolled%}
      {% for lesson in course.lessons.all %}
 
      <!-- Lessons item -->
@@ -55,6 +55,10 @@ Delete course
     <p>No Lessons</p>
 
     {% endfor %}
+
+{% else %}
+<p>You need to buy this course to view the lessons.</p>
+{% endif %}
 
   <!--Review section-->
 <!--Show reviews-->

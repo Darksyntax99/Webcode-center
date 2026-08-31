@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import Course, Review, Enrollment
 from .forms import CourseForm, ReviewForm
 
@@ -18,8 +19,16 @@ def courses_home(request):
 def course_detail(request, course_id):
     course = get_object_or_404(Course, id=course_id)
 
+    is_enrolled = False
+    if request.user.is_authenticated:
+         is_enrolled = Enrollment.objects.filter(
+              user=request.user,
+              course=course
+         ).exists()
+
     context = {
-        'course' : course
+        'course' : course,
+        'is_enrolled':is_enrolled
     }
     return render(request, 'courses/course_detail.html', context)
 
@@ -32,6 +41,7 @@ def my_courses(request):
     }
     return render(request, 'courses/my_courses.html', context)
 # Add new course
+@staff_member_required
 def add_course(request):
     if request.method == 'POST':
         form = CourseForm(request.POST)
@@ -47,6 +57,7 @@ def add_course(request):
             }
             return render(request, 'courses/add_course.html', context)
 # Edit course
+@staff_member_required
 def edit_course(request, course_id):
      course = get_object_or_404(Course, id=course_id)
      if request.method == 'POST':
@@ -64,6 +75,7 @@ def edit_course(request, course_id):
      return render(request, 'courses/edit_course.html', context)
 
 # delete course 
+@staff_member_required
 def delete_course(request, course_id):
      course = get_object_or_404(Course, id=course_id)
 
@@ -77,6 +89,7 @@ def delete_course(request, course_id):
 
 
 # Add review
+@login_required
 def add_review(request, course_id):
      course = get_object_or_404(Course, id=course_id)
 
@@ -100,6 +113,7 @@ def add_review(request, course_id):
      return render(request, 'courses/add_review.html', context)
 
 # Edit review
+@login_required
 def edit_review(request, review_id):
      review = get_object_or_404(
           Review, 
@@ -125,6 +139,7 @@ def edit_review(request, review_id):
 
      return render(request, 'courses/edit_review.html', context)
 # Delete review 
+@login_required
 def delete_review(request, review_id):
      review = get_object_or_404(
           Review,
@@ -144,13 +159,3 @@ def delete_review(request, review_id):
           'review': review
      }
      return render(request, 'courses/delete_review.html', context)
-
-@login_required
-def enroll_course(request, course_id):
-     course = get_object_or_404(Course, id=course_id)
-
-     Enrollment.objects.get_or_create(
-          user=request.user,
-          course=course
-     )
-     return redirect('course_detail', course_id=course.id)
