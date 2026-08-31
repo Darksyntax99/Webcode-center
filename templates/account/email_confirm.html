@@ -1,0 +1,49 @@
+{%extends "base.html"%}
+{%load i18n%}
+{%load account%}
+
+{% block content %}
+
+<div class="container mt-5 ">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card p-4 text-center">
+                <h1 class="mb-4">
+                    Confrim Email
+                </h1>
+                {% if confirmation %}
+
+                {% if can_confirm%}
+
+                <p>
+                    Please confrim
+                    <strong>{{confirmation.email_address.email}}</strong>
+                    your email address
+                </p>
+                <form method="post"
+                action="{%url 'account_confirm_email' confirmation.key%}">
+
+                {% csrf_token %}
+                {{redirect_field}}
+
+                <button type="submit"
+                class="btn btn-primary mt-3">Confrim the eamil</button>
+                </form>
+
+                {% else %}
+
+                <p>
+                    This email confirmation link has expired or is invalid.
+                </p>
+                <a href="{%url 'account_email'%}"
+                class="btn btn-secondary mt-3">
+                Request New confirmation</a>
+
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
