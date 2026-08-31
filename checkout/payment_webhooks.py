@@ -30,6 +30,7 @@ class PaymentWebhook:
             content='Payment Succeeded',
             status=200
         )
+    
     def payment_failed(self, event):
         return HttpResponse(
             content= 'Payment failed',
