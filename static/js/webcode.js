@@ -1,3 +1,4 @@
+/* jshint esversion 6 */
 // Delete confrim
 const deleteButton = document.querySelectorAll('.delete-btn');
 
@@ -22,7 +23,7 @@ searchInput.addEventListener('keyup', function() {
     if (courseName.includes(searchText)) {
         course.style.display = '';
     } else {
-        course.style.display = 'none'
+        course.style.display = 'none';
     }
 });
 });

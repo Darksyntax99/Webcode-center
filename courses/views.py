@@ -59,11 +59,11 @@ def add_course(request):
     else:
         form = CourseForm()
 
-        context = {
-            'form': form
-        }
+    context = {
+        'form': form
+    }
 
-        return render(request, 'courses/add_course.html', context)
+    return render(request, 'courses/add_course.html', context)
 
 
 # Edit course

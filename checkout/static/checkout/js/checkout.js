@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+/* global Stripe */
 // get stripe data
 const stripePublicKey = JSON.parse(
     document.getElementById('id_stripe_public_key').textContent
@@ -7,7 +9,7 @@ const clientSecret = JSON.parse(
 );
 const courseId = JSON.parse(
     document.getElementById('id_course_id').textContent
-)
+);
 // setup stripe
 const stripe = Stripe(stripePublicKey);
 const elements = stripe.elements();

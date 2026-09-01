@@ -1,11 +1,15 @@
 {%extends "base.html"%}
 {% block content%}
 
-<div class="container mt-5 texxt-center">
+{% block head_title %}
+Payment Successful
+{% endblock %}
+<div class="container mt-5 text-center">
     <h1>Payment Successful</h1>
 
-    <p>You have purchased the payment{{course.title}}.</p>
-    <a href="{%url 'my_courses'%}" class="btn btn-primary">
+    <p>You have purchased of {{course.title}}.</p>
+    
+    <a href="{% url 'my_courses' %}" class="btn btn-primary">
         My Courses
     </a>
 </div>
