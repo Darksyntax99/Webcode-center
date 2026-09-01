@@ -27,15 +27,15 @@ main{
     margin-left: 10px;
 }
 /* navbar hover*/
-.nav-brand:hover,
+.navbar-brand:hover,
 .nav-link:hover {
     color: #ffffff !important;
 }
 /* burger buttion*/
-.nav-toggler {
+.navbar-toggler {
     border: 1px solid #000000;
 }
-.nav-toggler-icon {
+.navbar-toggler-icon {
     filter: none;
 }
 /* Heading */ 
