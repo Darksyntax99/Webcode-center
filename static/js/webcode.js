@@ -1,4 +1,4 @@
-/* jshint esversion 6 */
+/* jshint esversion: 6 */
 // Delete confrim
 const deleteButton = document.querySelectorAll('.delete-btn');
 
