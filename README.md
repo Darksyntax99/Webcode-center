@@ -623,7 +623,7 @@ I made commits during development when adding features fixing problems and makin
 23. Cause: Some Python files had spacing and formatting issues.
 24. Fix: the reported issues and checked the code again with Flake8
 25. Bug; Pyhton Error happened in the urls.py file.
-26. Cause: I wrote django.conf instead of django.conf.
+26. Cause: I wrote django.cnof instead of django.conf.
 27. Fix: i corrected the import from Django.cnof to django.conf.
 
 # Balsamiq WireFrame design
