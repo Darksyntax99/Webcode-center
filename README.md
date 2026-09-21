@@ -11,6 +11,88 @@ The website also has features for staff users. Staff users can add new courses a
 the main purpose of Webcode Center is to create a simple place where users can find coding courses, buy them and access their course content from their account.
 The website was created using Django, python, HTML, CSS and JavaScript. Bootstrap is used for the website layout and stripe is used to process course payments.
 
+# Features section
+- webcode courses section (desktop)
+![coursesdes](images3/Screenshot%202026-09-20%20at%2020.16.06.png)
+
+- webcode courses section (tablet)
+![coursestab](images3/Screenshot%202026-09-20%20at%2020.19.48.png)
+
+- webcode courses section (mobile)
+![coursesmobile](images3/Screenshot%202026-09-20%20at%2020.24.51.png)
+
+- webcode in course section (desktop)
+![incoursedes](images3/Screenshot%202026-09-21%20at%2016.25.54.png)
+
+- webcode in course section (tablet)
+![incoursetab](images3/Screenshot%202026-09-21%20at%2016.26.39.png)
+
+- webcode in course section (mobile)
+![incoursemob](images3/Screenshot%202026-09-21%20at%2016.27.52.png)
+
+- webcode my courses section (tablet)
+![mycoursesdes](images3/Screenshot%202026-09-20%20at%2020.23.08.png)
+
+- webcode my courses section (mobile)
+![mycoursestab](images3/Screenshot%202026-09-20%20at%2020.26.55.png)
+
+- webcode my courses section (desktop)
+![mycourses](images3/Screenshot%202026-09-20%20at%2020.17.03.png)
+
+- webcode  checkout section (desktop)
+![checkoutdes](images3/Screenshot%202026-09-20%20at%2020.17.29.png)
+
+- webcode checkout section (tablet)
+![checkouttab](images3/Screenshot%202026-09-20%20at%2020.22.39.png)
+
+- webcode checkout section (mobile)
+![checkoutmob](images3/Screenshot%202026-09-20%20at%2020.26.13.png)
+
+- webcode payment success section (desktop)
+![paymentdes](images3/Screenshot%202026-09-21%20at%2012.17.58.png)
+
+- webcode payment success section (tab)
+![payment](images3/Screenshot%202026-09-21%20at%2012.18.23.png)
+
+- webcode payment success section (mob)
+![payment](images3/Screenshot%202026-09-21%20at%2012.19.01.png)
+
+- webcode login section (desktop)
+![login](images3/Screenshot%202026-09-20%20at%2020.18.31.png)
+
+- webcode login section (tab)
+![login](images3/Screenshot%202026-09-20%20at%2020.21.23.png)
+
+- webcode login section (mob)
+![login](images3/Screenshot%202026-09-20%20at%2020.28.18.png)
+
+- webcode register section (desktop)
+![register](images3/Screenshot%202026-09-20%20at%2020.18.47.png)
+
+- webcode register section (tablet)
+![register](images3/Screenshot%202026-09-20%20at%2020.21.51.png)
+
+- webcode register section (mobile)
+![register](images3/Screenshot%202026-09-20%20at%2020.27.53.png)
+
+- webcode signup section (desktop)
+![signup](images3/Screenshot%202026-09-20%20at%2020.18.12.png)
+
+- webcode signup section (tablet)
+![signup](images3/Screenshot%202026-09-20%20at%2020.23.47.png)
+
+- webcode signup section (mobile)
+![signup](images3/Screenshot%202026-09-20%20at%2020.27.20.png)
+
+- webcode review section (desktop)
+![review](images3/4D99A3C4-FC99-42FB-BB89-8370DA7B3048.png)
+
+- webcode review section (tablet)
+![review](images3/Screenshot%202026-09-21%20at%2017.13.03.png)
+
+- webcode review section (mobile)
+![review](images3/80D29909-736A-4A00-94F8-41A6BC863D21.png)
+
 # User Experience (UX)
 ## User Story 1: Create an account
 - As a user I want to create an account so that I can buy courses and access my purchased courses.
